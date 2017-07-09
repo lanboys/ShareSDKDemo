@@ -3,6 +3,27 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
+
+//    MD5: 67:83:B7:25:FB:1C:13:ED:E1:CA:E9:13:CE:9C:C6:37
+//    md5: 67:83:b7:25:fb:1c:13:ed:e1:ca:e9:13:ce:9c:c6:37
+//    md5: 67:83:b7:25:fb:1c:13:ed:e1:ca:e9:13:ce:9c:c6:37
+//    md5去除冒号,就是微博平台需要的签名 6783b725fb1c13ede1cae913ce9cc637
+
+//    SHA1: EA:57:D3:53:75:9F:77:59:40:95:96:0C:52:39:35:1D:3C:ED:39:C4
+//    sha1: ea:57:d3:53:75:9f:77:59:40:95:96:0c:52:39:35:1d:3c:ed:39:c4
+
+//    SHA256: 76:E8:B5:42:7C:9B:3F:50:52:6B:C2:99:0A:E3:2B:B5:40:7B:91:D0:5C:B8:59:0E:1C:32:1B:18:35:5A:9E:6D
+
+
+    signingConfigs {
+        debug {
+            keyAlias 'ShareSDK'
+            keyPassword '123456'
+            storeFile file("ShareSDKkey.jks")
+            storePassword '123456'
+        }
+    }
+
     defaultConfig {
         applicationId "com.bing.lan.share"
         minSdkVersion 16
@@ -12,7 +33,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
         release {
+            signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
