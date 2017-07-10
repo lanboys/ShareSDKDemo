@@ -50,8 +50,9 @@
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false, -->
     <!-- 1、isNewApi是否使用新街口，true是使用新接口，false为老接口
-         2、用户分享到微博的文本内容，必须做URLencode，内容不超过140个汉字，文本中不能包含“#话题词#”，同时文本中必须包含至少一个第三方分享到微博的网页URL，
-        且该URL只能是该第三方（调用方）绑定域下的URL链接，绑定域在“我的应用 － 应用信息 － 基本应用信息编辑 － 安全域名”里设置。-->
+         2、用户分享到微博的文本内容，必须做URLencode，内容不超过140个汉字，文本中不能包含“#话题词#”，
+         同时文本中必须包含至少一个第三方分享到微博的网页URL，且该URL只能是该第三方（调用方）绑定域下
+         的URL链接，绑定域在“我的应用 － 应用信息 － 基本应用信息编辑 － 安全域名”里设置。-->
     <SinaWeibo
         AppKey="3013446168"
         AppSecret="1dd250ac54e34c88e42ce82ccec58e96"
@@ -120,12 +121,12 @@
         SortId="6"/>
 
     <!--<TencentWeibo-->
-        <!--AppKey="801307650"-->
-        <!--AppSecret="ae36f4ee3946e1cbb98d6965b0b2ff5c"-->
-        <!--Enable="true"-->
-        <!--Id="2"-->
-        <!--RedirectUri="http://sharesdk.cn"-->
-        <!--SortId="7"/>-->
+    <!--AppKey="801307650"-->
+    <!--AppSecret="ae36f4ee3946e1cbb98d6965b0b2ff5c"-->
+    <!--Enable="true"-->
+    <!--Id="2"-->
+    <!--RedirectUri="http://sharesdk.cn"-->
+    <!--SortId="7"/>-->
 
     <!--<Facebook-->
     <!--ConsumerKey="107704292745179"-->
