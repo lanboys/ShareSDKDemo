@@ -87,7 +87,7 @@ public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Ca
 		// 显示方式是由platform和silent两个字段控制的
 		// 如果platform设置了，则无须显示九宫格，否则都会显示；
 		// 如果silent为true，表示不进入编辑页面，否则会进入。
-		if (shareParamsMap.containsKey("platform")) {
+ 		if (shareParamsMap.containsKey("platform")) {
 			String name = String.valueOf(shareParamsMap.get("platform"));
 			Platform platform = ShareSDK.getPlatform(name);
 			boolean isCustomPlatform = platform instanceof CustomPlatform;
