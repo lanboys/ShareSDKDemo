@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //         .setAction("Action", null).show();
 
-                showShare();
-                // showDialog();
+                // showShare();
+                showDialog();
             }
         });
 
@@ -76,12 +76,17 @@ public class MainActivity extends AppCompatActivity {
         // //显示（自定义位置）
         // popupWindow.showAtLocation(new TextView(this), Gravity.NO_GRAVITY  /* | Gravity.CENTER_VERTICAL*/, 100, 300);
         // // popupWindow .showAsDropDown(mToolbar,0,0);//显示在控件下面
-        //关闭
+
+
+        View inflate = View.inflate(this, R.layout.view, null);
+
         AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
         dialog.setTitle("我是弹窗");
+        dialog.setView(inflate,0,0,0,0);
         Window window = dialog.getWindow();
         window.setGravity(Gravity.BOTTOM); // 非常重要：设置对话框弹出的位置
-        window.setContentView(R.layout.view);
+        window.setContentView(R.layout.view);//无效
+
 
         // window.setAttributes(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         dialog.show();
