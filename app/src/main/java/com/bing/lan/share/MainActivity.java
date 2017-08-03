@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
          // 通过代码注册你的AppKey和AppSecretMobSDK.init(context, "你的AppKey", "你的AppSecret");
          */
 
-
         //        <meta-data android:name="Mob-AppKey" android:value="1f4925d768e6e"/>
         //<meta-data android:name="Mob-AppSecret" android:value="a8340efcfa6c560379fbfe7ba7ca2583"/>
 
@@ -144,8 +143,11 @@ public class MainActivity extends AppCompatActivity {
         // text是分享文本，所有平台都需要这个字段
         oks.setText("我是分享文本我是分享文本我是分享文本我是分享文本我是分享文本");
 
+        //没有图片就会 带上分享文本 (二选一？？)
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         oks.setImagePath(Environment.getExternalStorageDirectory().getAbsolutePath() + "/test.jpg");//确保SDcard下面存在此张图片
+        //oks.setImageUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501755647712&di=d49d1fa6d94f4ce701e1546d0aaad23c&imgtype=0&src=http%3A%2F%2Fwww.sznews.com%2Fszsbcar%2Fimages%2F001921ad0b15096e699c02.jpg");
+        //图片地址不能是内网地址
 
         // url仅在微信（包括好友和朋友圈），新浪微博  中使用
         // 新浪微博  必须要是安全域名的子域名，不能短时间内发送同一条微博
