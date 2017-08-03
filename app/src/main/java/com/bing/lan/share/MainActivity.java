@@ -18,6 +18,9 @@ import java.util.HashMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.tencent.qzone.QZone;
+import cn.sharesdk.wechat.favorite.WechatFavorite;
+import cn.sharesdk.wechat.friends.Wechat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //         .setAction("Action", null).show();
 
-                // showShare();
-                showDialog();
+                 showShare();
+                //showDialog();
             }
         });
 
@@ -102,12 +105,13 @@ public class MainActivity extends AppCompatActivity {
         oks.disableSSOWhenAuthorize();
 
         // 三种方法 : 1 xml中更改   2.删除jar包   3. 方法如下
+         oks.addHiddenPlatform(QZone.NAME);
+         oks.addHiddenPlatform(WechatFavorite.NAME);
+         oks.addHiddenPlatform(Wechat.NAME);
         // oks.addHiddenPlatform(SinaWeibo.NAME);
-        // oks.addHiddenPlatform(QZone.NAME);
-        // oks.addHiddenPlatform(WechatFavorite.NAME);
-        // oks.addHiddenPlatform(ShortMessage.NAME);
-        // oks.addHiddenPlatform(AlipayMoments.NAME);
-        // oks.addHiddenPlatform(Alipay.NAME);
+         //oks.addHiddenPlatform(ShortMessage.NAME);
+         //oks.addHiddenPlatform(AlipayMoments.NAME);
+         //oks.addHiddenPlatform(Alipay.NAME);
 
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
         oks.setTitle("我是分享标题");

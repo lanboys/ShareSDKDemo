@@ -8,13 +8,14 @@
 
 package cn.sharesdk.onekeyshare.themes.classic.port;
 
-import java.util.ArrayList;
-
 import android.content.Context;
-import cn.sharesdk.onekeyshare.themes.classic.PlatformPage;
-import cn.sharesdk.onekeyshare.themes.classic.PlatformPageAdapter;
 
 import com.mob.tools.utils.ResHelper;
+
+import java.util.ArrayList;
+
+import cn.sharesdk.onekeyshare.themes.classic.PlatformPage;
+import cn.sharesdk.onekeyshare.themes.classic.PlatformPageAdapter;
 
 /** 竖屏的九宫格页面适配器 */
 public class PlatformPageAdapterPort extends PlatformPageAdapter {
@@ -23,7 +24,7 @@ public class PlatformPageAdapterPort extends PlatformPageAdapter {
 	private static final int DESIGN_LOGO_HEIGHT = 76;
 	private static final int DESIGN_PADDING_TOP = 20;
 	private static final int PAGE_SIZE_P = 12;
-	private static final int LINE_SIZE_P = 4;
+	private static final int LINE_SIZE_P = 3;//此处修改每行个数
 
 	public PlatformPageAdapterPort(PlatformPage page, ArrayList<Object> cells) {
 		super(page, cells);
