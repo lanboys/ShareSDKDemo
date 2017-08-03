@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import com.mob.MobSDK;
+
 import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //         .setAction("Action", null).show();
 
-                 showShare();
+                showShare();
                 //showDialog();
             }
         });
@@ -70,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void showDialog() {
 
-
-
         // View view = LayoutInflater.from(this).inflate(R.layout.view, null);
         // //背景颜色
         // view.setBackgroundColor(Color.WHITE);
@@ -80,22 +80,45 @@ public class MainActivity extends AppCompatActivity {
         // popupWindow.showAtLocation(new TextView(this), Gravity.NO_GRAVITY  /* | Gravity.CENTER_VERTICAL*/, 100, 300);
         // // popupWindow .showAsDropDown(mToolbar,0,0);//显示在控件下面
 
-
         View inflate = View.inflate(this, R.layout.view, null);
 
         AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
         dialog.setTitle("我是弹窗");
-        dialog.setView(inflate,0,0,0,0);
+        dialog.setView(inflate, 0, 0, 0, 0);
         Window window = dialog.getWindow();
         window.setGravity(Gravity.BOTTOM); // 非常重要：设置对话框弹出的位置
         window.setContentView(R.layout.view);//无效
-
 
         // window.setAttributes(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         dialog.show();
     }
 
     private void showShare() {
+
+        //http://bbs.mob.com/thread-22130-1-1.html
+        /**
+         * 第七步：配置AppKey和AppSecret有两种方式ShareSDK配置appkey和appsecret的配置，前面配置Manifest文件的时候已经有说明在application中配置节点等；
+         配置AppKey和AppSecret有两种方式：
+         （1）通过AndroidManifest配置
+         （2）通过代码配置
+         以上方法择一即可，建议使用第一种方式进行配置。
+         第一种：通过AndroidManifest配置：
+         （1）在Application节点下添加以下属性：
+         android:name="com.mob.MobApplication"
+         注意：如果你有自己的Application类，那么也可以让你的Application类继承MobApplication即可。
+         （2）在Application节点下添加以下子节点：
+         //<!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data --><meta-data android:name="Mob-AppKey" android:value="你的AppKey"/><meta-data android:name="Mob-AppSecret" android:value="你的AppSecret"/>
+         第二种：通过代码配置：
+         如果选择通过代码配置，则不需要继承MobApplication，只要在使用ShareSDK之前，调用以下代码：
+         // 通过代码注册你的AppKey和AppSecretMobSDK.init(context, "你的AppKey", "你的AppSecret");
+         */
+
+
+        //        <meta-data android:name="Mob-AppKey" android:value="1f4925d768e6e"/>
+        //<meta-data android:name="Mob-AppSecret" android:value="a8340efcfa6c560379fbfe7ba7ca2583"/>
+
+        MobSDK.init(this, "1f4925d768e6e", "a8340efcfa6c560379fbfe7ba7ca2583");
+
         String url = "http://www.mob.com/downloadDetail/ShareSDK/android";
         String url2 = "http://news.3news.cn/html/jin/2017/0710/64380.html";
         String url3 = "https://www.baidu.com/";
@@ -105,13 +128,13 @@ public class MainActivity extends AppCompatActivity {
         oks.disableSSOWhenAuthorize();
 
         // 三种方法 : 1 xml中更改   2.删除jar包   3. 方法如下
-         oks.addHiddenPlatform(QZone.NAME);
-         oks.addHiddenPlatform(WechatFavorite.NAME);
-         oks.addHiddenPlatform(Wechat.NAME);
+        oks.addHiddenPlatform(QZone.NAME);
+        oks.addHiddenPlatform(WechatFavorite.NAME);
+        oks.addHiddenPlatform(Wechat.NAME);
         // oks.addHiddenPlatform(SinaWeibo.NAME);
-         //oks.addHiddenPlatform(ShortMessage.NAME);
-         //oks.addHiddenPlatform(AlipayMoments.NAME);
-         //oks.addHiddenPlatform(Alipay.NAME);
+        //oks.addHiddenPlatform(ShortMessage.NAME);
+        //oks.addHiddenPlatform(AlipayMoments.NAME);
+        //oks.addHiddenPlatform(Alipay.NAME);
 
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
         oks.setTitle("我是分享标题");
@@ -168,13 +191,6 @@ public class MainActivity extends AppCompatActivity {
         oks.show(this);
 
         //515b665aa60b24e21caf5d152b60e71a
-
-
-
-
-
-
-
 
     }
 
