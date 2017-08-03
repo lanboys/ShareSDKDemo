@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.bing.lan.share">
 
     <uses-permission android:name="android.permission.GET_TASKS"/>
@@ -23,6 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        tools:replace="android:value"
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -35,55 +37,7 @@
         </activity>
 
 
-        <!-- ShareSDK的activity -->
-        <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
 
-            <intent-filter>
-                <data android:scheme="tencent1106277748"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-
-            <!-- 调用新浪原生SDK，需要注册的回调activity -->
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-
-            <!--集成line客户端登录授权，需要添如下格式的过滤器-->
-            <intent-filter>
-                <data android:scheme="line.1477692153"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-
-        </activity>
-        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
-        <meta-data android:name="Mob-AppKey" android:value="1f4925d768e6e"/>
-        <meta-data android:name="Mob-AppSecret" android:value="a8340efcfa6c560379fbfe7ba7ca2583"/>
-
-
-
-        <!--微信分享回调 -->
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <!-- 支付宝分享回调 -->
-        <!--<activity-->
-            <!--android:name=".apshare.ShareEntryActivity"-->
-            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
-            <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
-            <!--android:exported="true"/>-->
     </application>
 
 
