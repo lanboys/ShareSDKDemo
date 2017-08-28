@@ -60,7 +60,7 @@
         AppKey="3013446168"
         AppSecret="1dd250ac54e34c88e42ce82ccec58e96"
 		RedirectUrl="http://open.weibo.com/apps/3013446168/privilege/oauth"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
 		IsNewApi = "true"
         Enable="true" />
 
