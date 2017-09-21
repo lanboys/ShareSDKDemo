@@ -24,6 +24,7 @@ import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
 import cn.sharesdk.wechat.friends.Wechat;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "-->shareSDK";
