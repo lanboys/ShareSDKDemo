@@ -1,7 +1,7 @@
 package com.bing.lan.share;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.mob.MobSDK;
 
@@ -24,11 +25,11 @@ import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
 import cn.sharesdk.wechat.friends.Wechat;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "-->shareSDK";
     private Toolbar mToolbar;
+    private Button mButton;
 
     //  增加  显眼的提示
 
@@ -38,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        mButton = (Button) findViewById(R.id.btn_open);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivity(intent);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -142,12 +153,12 @@ public class MainActivity extends AppCompatActivity {
         oks.setTitleUrl(url3);
 
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("我是分享文本我是分享文本我是分享文本我是分享文本我是分享文本");
+        //oks.setText("我是分享文本我是分享文本我是分享文本我是分享文本我是分享文本");
 
         //没有图片就会 带上分享文本 (二选一？？)
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-        oks.setImagePath(Environment.getExternalStorageDirectory().getAbsolutePath() + "/test.jpg");//确保SDcard下面存在此张图片
-        //oks.setImageUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501755647712&di=d49d1fa6d94f4ce701e1546d0aaad23c&imgtype=0&src=http%3A%2F%2Fwww.sznews.com%2Fszsbcar%2Fimages%2F001921ad0b15096e699c02.jpg");
+        //oks.setImagePath(Environment.getExternalStorageDirectory().getAbsolutePath() + "/test.jpg");//确保SDcard下面存在此张图片
+        oks.setImageUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501755647712&di=d49d1fa6d94f4ce701e1546d0aaad23c&imgtype=0&src=http%3A%2F%2Fwww.sznews.com%2Fszsbcar%2Fimages%2F001921ad0b15096e699c02.jpg");
         //图片地址不能是内网地址
 
         // url仅在微信（包括好友和朋友圈），新浪微博  中使用
